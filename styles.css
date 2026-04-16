@@ -1,0 +1,129 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #02140a;
+  color: white;
+}
+
+.main {
+  display: flex;
+  height: 100vh;
+}
+
+.left {
+  flex: 1;
+  padding: 80px;
+}
+
+.left h1 {
+  font-size: 60px;
+  line-height: 1.2;
+}
+
+.left h1 span {
+  color: #6eff7b;
+}
+
+.tag span {
+  color: #6eff7b;
+  margin-bottom: 20px;
+}
+
+.desc {
+  margin: 20px 0;
+  color: #b5cbbf;
+  max-width: 500px;
+}
+
+.features {
+  margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.features span {
+  background: rgba(255,255,255,0.05);
+  padding: 10px 15px;
+  border-radius: 20px;
+  font-size: 14px;
+}
+
+.right {
+  width: 400px;
+  background: #062015;
+  padding: 60px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.right h2 {
+  font-size: 32px;
+  text-align: center;
+}
+.right h2 span {
+  color: #6eff7b;
+}
+
+.subtitle {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #9bb3a6;
+}
+
+.tabs {
+  display: flex;
+  background: rgba(255,255,255,0.05);
+  border-radius: 30px;
+  margin-bottom: 20px;
+}
+
+.tabs button {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  background: transparent;
+  color: white;
+  cursor: pointer;
+  border-radius: 30px;
+}
+
+.tabs .active {
+  background: #6eff7b;
+  color: black;
+}
+
+input {
+  margin: 10px 0;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  background: rgba(255,255,255,0.05);
+  color: white;
+}
+
+.login-btn {
+  margin-top: 15px;
+  padding: 12px;
+  background: #6eff7b;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.divider {
+  text-align: center;
+  margin: 20px 0;
+  color: #9bb3a6;
+}
+
+.demo {
+  padding: 12px;
+  border-radius: 25px;
+  border: 1px solid rgba(255,255,255,0.2);
+  background: transparent;
+  color: white;
+  cursor: pointer;
+}
