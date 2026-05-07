@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -6,45 +7,197 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <main class="app-shell">
+    <section id="auth-view" class="auth-view">
+      <div class="brand-panel">
+        <p class="eyebrow">NutriTrack</p>
+        <h1>Track meals, goals, conditions, and subscriptions in one place.</h1>
+        <p class="intro">
+          A MyFitnessPal-style nutrition tracker with calorie targets, macro summaries,
+          medical-aware food guidance, meal logging, and premium subscription plans.
+        </p>
+        <div class="metric-strip">
+          <span>Calories</span>
+          <span>Macros</span>
+          <span>Medical filters</span>
+          <span>Subscriptions</span>
+        </div>
+      </div>
 
-<div class="main">
-  <div class="left">
-    <H1 class="tag">Nutri<Span>Track</Span></H1>
-    <h1>Track every <span>bite</span> you take.</h1>
-    <p class="desc">
-      A complete nutrition & health tracker powered by a relational database — log meals, monitor macros, and get personalized diet recommendations.
-    </p>
+      <form id="auth-form" class="auth-card">
+        <div>
+          <h2>Welcome</h2>
+          <p id="auth-copy">Sign in to your dashboard.</p>
+        </div>
 
-    <div class="features">
-      <span>● Calorie Tracking</span>
-      <span>● Macro Analysis</span>
-      <span>● Diet Recommendations</span>
-      <span>● Medical History</span>
-      <span>● Expense Tracking</span>
-      <span>● Subscription Plans</span>
-    </div>
-  </div>
-  <div class="right">
-    <h2>Nutri<span>Track</span></h2>
-    <p class="subtitle">Your smart health companion</p>
+        <div class="segmented">
+          <button type="button" id="login-tab" class="active">Sign in</button>
+          <button type="button" id="register-tab">Register</button>
+        </div>
 
-    <div class="tabs">
-      <button class="active">Sign In</button>
-      <button>Register</button>
-    </div>
+        <label id="name-field" class="hidden">
+          Name
+          <input id="name" type="text" autocomplete="name" placeholder="Alex Morgan">
+        </label>
 
-    <input type="email" placeholder="you@example.com">
-    <input type="password" placeholder="Password">
+        <label>
+          Email
+          <input id="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+        </label>
 
-    <button class="login-btn">Sign In →</button>
+        <label>
+          Password
+          <input id="password" type="password" autocomplete="current-password" placeholder="Minimum 6 characters" required>
+        </label>
 
-    <div class="divider">or continue as</div>
+        <button id="auth-submit" class="primary-btn" type="submit">Sign in</button>
+        <button id="demo-btn" class="ghost-btn" type="button">Use demo account</button>
+        <p id="auth-message" class="form-message"></p>
+      </form>
+    </section>
 
-    <button class="demo">Demo Account</button>
-  </div>
+    <section id="dashboard-view" class="dashboard-view hidden">
+      <aside class="sidebar">
+        <div>
+          <p class="eyebrow">NutriTrack</p>
+          <h2 id="user-name">Dashboard</h2>
+        </div>
+        <nav>
+          <a href="#today">Today</a>
+          <a href="#profile">Profile</a>
+          <a href="#food">Food log</a>
+          <a href="#medical">Medical</a>
+          <a href="#plans">Subscription</a>
+        </nav>
+        <button id="logout-btn" class="ghost-btn" type="button">Logout</button>
+      </aside>
 
-</div>
+      <section class="content">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Daily nutrition</p>
+            <h1 id="goal-title">Build your plan</h1>
+          </div>
+          <div class="date-pill" id="today-date"></div>
+        </header>
 
-<script src="script.js"></script>
+        <section id="today" class="summary-grid">
+          <article class="summary-tile">
+            <span>Calories</span>
+            <strong id="calories-total">0</strong>
+            <small id="calories-target">Target 0</small>
+          </article>
+          <article class="summary-tile">
+            <span>Protein</span>
+            <strong id="protein-total">0g</strong>
+            <small id="protein-target">Target 0g</small>
+          </article>
+          <article class="summary-tile">
+            <span>Carbs</span>
+            <strong id="carbs-total">0g</strong>
+            <small id="carbs-target">Target 0g</small>
+          </article>
+          <article class="summary-tile">
+            <span>Fat</span>
+            <strong id="fat-total">0g</strong>
+            <small id="fat-target">Target 0g</small>
+          </article>
+        </section>
+
+        <section class="workspace-grid">
+          <form id="profile-form" class="panel" aria-labelledby="profile-heading">
+            <div class="panel-heading">
+              <h2 id="profile-heading">Body profile</h2>
+              <p>Used to calculate BMR, TDEE, and nutrition targets.</p>
+            </div>
+            <div class="form-grid">
+              <label>Age <input id="age" type="number" min="12" max="100" required></label>
+              <label>Gender
+                <select id="gender">
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                  <option value="other">Other</option>
+                </select>
+              </label>
+              <label>Height (cm) <input id="height" type="number" min="100" max="240" required></label>
+              <label>Weight (kg) <input id="weight" type="number" min="30" max="250" step="0.1" required></label>
+              <label>Activity
+                <select id="activity">
+                  <option value="sedentary">Sedentary</option>
+                  <option value="light">Light</option>
+                  <option value="moderate">Moderate</option>
+                  <option value="active">Active</option>
+                  <option value="athlete">Athlete</option>
+                </select>
+              </label>
+              <label>Goal
+                <select id="goal">
+                  <option value="cutting">Cutting</option>
+                  <option value="maintenance">Maintenance</option>
+                  <option value="bulking">Bulking</option>
+                </select>
+              </label>
+            </div>
+            <button class="primary-btn" type="submit">Save profile and targets</button>
+            <p id="profile-message" class="form-message"></p>
+          </form>
+
+          <section id="food" class="panel">
+            <div class="panel-heading">
+              <h2>Log food</h2>
+              <p>Select a meal, food item, and serving size.</p>
+            </div>
+            <form id="food-form" class="stacked-form">
+              <label>Meal
+                <select id="meal-type">
+                  <option value="breakfast">Breakfast</option>
+                  <option value="lunch">Lunch</option>
+                  <option value="dinner">Dinner</option>
+                  <option value="snack">Snack</option>
+                </select>
+              </label>
+              <label>Food <select id="food-select"></select></label>
+              <label>Servings <input id="servings" type="number" min="0.25" step="0.25" value="1"></label>
+              <button class="primary-btn" type="submit">Add food</button>
+            </form>
+            <div class="meal-list" id="meal-list"></div>
+          </section>
+        </section>
+
+        <section class="workspace-grid">
+          <form id="medical-form" class="panel" aria-labelledby="medical-heading">
+            <div class="panel-heading">
+              <h2 id="medical-heading">Medical conditions</h2>
+              <p>Recommendations adapt to these selections.</p>
+            </div>
+            <div id="condition-list" class="checkbox-list"></div>
+            <label>Notes
+              <textarea id="medical-notes" rows="3" placeholder="Doctor guidance, allergies, medication timing"></textarea>
+            </label>
+            <button class="primary-btn" type="submit">Save medical profile</button>
+            <p id="medical-message" class="form-message"></p>
+          </form>
+
+          <section class="panel">
+            <div class="panel-heading">
+              <h2>Recommendations</h2>
+              <p>Food guidance based on goals and medical profile.</p>
+            </div>
+            <div id="recommendations" class="recommendation-list"></div>
+          </section>
+        </section>
+
+        <section id="plans" class="panel">
+          <div class="panel-heading">
+            <h2>Subscription plans</h2>
+            <p>Choose a plan to unlock more tracking features.</p>
+          </div>
+          <div id="plans-list" class="plans-grid"></div>
+        </section>
+      </section>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
 </body>
 </html>
